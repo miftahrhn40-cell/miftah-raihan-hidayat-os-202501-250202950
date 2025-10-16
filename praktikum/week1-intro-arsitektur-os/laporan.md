@@ -34,10 +34,18 @@ Sistem operasi adalah perangkat lunak utama yang mengelola semua sumber daya per
 ---
 
 ## Langkah Praktikum
-1. Langkah-langkah yang dilakukan.  
-2. Perintah yang dijalankan.  
-3. File dan kode yang dibuat.  
-4. Commit message yang digunakan.
+langkah-langkah yang dilakukan oleh sistem operasi:
+
+1. *Bootstrapping*
+2. *Inisialisasi*
+3. *Manajemen proses
+4. *Manajemen Memori*
+5. *Manajemen File*
+6. *Manajemen Input/Output*
+7. *Penjadwalan*
+8. *Keamanan*
+9. *Pengelolaan Sumber Daya
+10. *Pengelolaan Jaringan*
 
 ---
 
@@ -70,12 +78,20 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 ---
 
 ## Quiz
-1. [Pertanyaan 1]  
-   **Jawaban:**  
-2. [Pertanyaan 2]  
-   **Jawaban:**  
-3. [Pertanyaan 3]  
-   **Jawaban:**  
+1. 1. Sebutkan tiga fungsi utama sistem operasi.
+  - Tiga fungsi utama sistem operasi (SO) adalah:
+​Manajemen Sumber Daya (Resource Management): Mengelola dan mengalokasikan semua sumber daya perangkat keras (hardware) dan perangkat lunak (software) komputer, seperti CPU, memori, perangkat I/O (input/output), dan berkas/file. Fungsinya adalah memastikan bahwa sumber daya digunakan secara efisien dan adil oleh berbagai program dan pengguna.
+​Antarmuka Pengguna (User Interface - UI): Menyediakan cara bagi pengguna untuk berinteraksi dengan komputer, baik melalui antarmuka baris perintah (Command Line Interface - CLI) maupun antarmuka grafis (Graphical User Interface - GUI). Ini memungkinkan pengguna untuk menjalankan program dan mengelola berkas.
+​Manajemen Proses dan Berkas (Process and File Management):
+​Manajemen Proses: Mengatur siklus hidup program yang sedang berjalan (proses), termasuk penjadwalan, sinkronisasi, dan komunikasi antar-proses.
+​Manajemen Berkas: Mengorganisir, menyimpan, mengambil, memberi nama, dan melindungi data dalam bentuk berkas dan direktori pada media penyimpanan sekunder.
+.
+
+2. Jelaskan perbedaan antara kernel mode dan user mode.
+   - kernel memiliki akses penuh dan tanpa batas ke perangkat keras dan memori untuk menjalankan fungsi inti sistem operasi, sementara mode pengguna hanya memiliki akses terbatas untuk menjalankan aplikasi dan mendelegasikan permintaan yang memerlukan hak istimewa ke mode kernel melalui API.
+  
+3. Sebutkan contoh OS dengan arsitektur monolithic dan microkernel.
+ - Contoh sistem operasi (OS) dengan arsitektur monolitik adalah Linux dan Unix, sementara contoh OS dengan arsitektur mikrokernel adalah QNX, MINIX, dan L4. Perbedaan utamanya terletak pada bagaimana layanan inti dan non-inti dikelola; arsitektur monolitik menggabungkan semua layanan dalam satu ruang alamat tunggal, sedangkan arsitektur mikrokernel memisahkan layanan dasar di inti dan menjalankan layanan lainnya sebagai proses terpisah di ruang alamat berbeda. 
 
 ---
 

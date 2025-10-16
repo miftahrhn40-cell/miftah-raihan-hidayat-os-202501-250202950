@@ -73,7 +73,9 @@ https://photos.app.goo.gl/r853wurdjkLFrM3N7
 ---
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
+Instalasi WSL berhasil menciptakan lingkungan kerja Linux di dalam Windows, sehingga user dapat menjalankan perintah dan aplikasi Linux secara langsung.
+Peran Kernel sebagai inti sistem operasi yang mengatur komunikasi antara hardware dan software, serta mengenali konsep system call dan arsitektur berlapis dalam sistem operasi.
+Meskipun WSL tidak menjalankan kernel Linux secara penuh seperti sistem Linux asli, hasil percobaan menunjukan bahwa hubungan antara Windows dan Linux melalui WSL tetap efisien dan fungsional untuk pengembangan maupun pembelajaran sistem operasi.
 
 ---
 
@@ -97,8 +99,10 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 
 ## Refleksi Diri
 Tuliskan secara singkat:
-- Apa bagian yang paling menantang minggu ini?  
-- Bagaimana cara Anda mengatasinya?  
+- Apa bagian yang paling menantang minggu ini?
+- Pengupload an tugas karena masih agak asing dengan web github
+- Bagaimana cara Anda mengatasinya?
+- belajar dan bertanya kepada teman yang lebih tau
 
 ---
 

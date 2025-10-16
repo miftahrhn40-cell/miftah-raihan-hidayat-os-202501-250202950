@@ -38,13 +38,13 @@ langkah-langkah yang dilakukan oleh sistem operasi:
 
 1. *Bootstrapping*
 2. *Inisialisasi*
-3. *Manajemen proses
+3. Manajemen proses
 4. *Manajemen Memori*
 5. *Manajemen File*
 6. *Manajemen Input/Output*
 7. *Penjadwalan*
 8. *Keamanan*
-9. *Pengelolaan Sumber Daya
+9. Pengelolaan Sumber Daya
 10. *Pengelolaan Jaringan*
 
 ---
@@ -90,7 +90,7 @@ Meskipun WSL tidak menjalankan kernel Linux secara penuh seperti sistem Linux as
 .
 
 2. Jelaskan perbedaan antara kernel mode dan user mode.
-   - kernel memiliki akses penuh dan tanpa batas ke perangkat keras dan memori untuk menjalankan fungsi inti sistem operasi, sementara mode pengguna hanya memiliki akses terbatas untuk menjalankan aplikasi dan mendelegasikan permintaan yang memerlukan hak istimewa ke mode kernel melalui API.
+- kernel memiliki akses penuh dan tanpa batas ke perangkat keras dan memori untuk menjalankan fungsi inti sistem operasi, sementara mode pengguna hanya memiliki akses terbatas untuk menjalankan aplikasi dan mendelegasikan permintaan yang memerlukan hak istimewa ke mode kernel melalui API.
   
 3. Sebutkan contoh OS dengan arsitektur monolithic dan microkernel.
  - Contoh sistem operasi (OS) dengan arsitektur monolitik adalah Linux dan Unix, sementara contoh OS dengan arsitektur mikrokernel adalah QNX, MINIX, dan L4. Perbedaan utamanya terletak pada bagaimana layanan inti dan non-inti dikelola; arsitektur monolitik menggabungkan semua layanan dalam satu ruang alamat tunggal, sedangkan arsitektur mikrokernel memisahkan layanan dasar di inti dan menjalankan layanan lainnya sebagai proses terpisah di ruang alamat berbeda. 

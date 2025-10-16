@@ -13,13 +13,23 @@ Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
 
 ## Tujuan
 Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
+Tujuan praktikum Operating System (OS) adalah untuk:
+
+1. *Memahami konsep dasar sistem operasi*: Praktikum OS membantu mahasiswa memahami konsep dasar sistem operasi, seperti proses manajemen, manajemen memori, sistem file, dan lain-lain.
+2. *Mengenal sistem operasi yang digunakan*: Praktikum OS memungkinkan mahasiswa untuk mengenal sistem operasi yang digunakan, seperti Windows, Linux, atau macOS.
+3. *Mengembangkan keterampilan teknis*: Praktikum OS membantu mahasiswa mengembangkan keterampilan teknis dalam menggunakan sistem operasi, seperti menginstal, mengkonfigurasi, dan mengelola sistem operasi.
+4. *Memahami manajemen proses*: Praktikum OS membantu mahasiswa memahami bagaimana sistem operasi mengelola proses, termasuk pembuatan, penjadwalan, dan penghentian proses.
+5. *Memahami manajemen memori*: Praktikum OS membantu mahasiswa memahami bagaimana sistem operasi mengelola memori, termasuk alokasi, deallokasi, dan manajemen memori virtual.
+6. *Mengembangkan keterampilan troubleshooting*: Praktikum OS membantu mahasiswa mengembangkan keterampilan troubleshooting dalam mengidentifikasi dan menyelesaikan masalah yang terkait dengan sistem operasi.
+7. *Meningkatkan kemampuan analisis*: Praktikum OS membantu mahasiswa meningkatkan kemampuan analisis dalam memahami bagaimana sistem operasi bekerja dan bagaimana mengoptimalkan kinerjanya.
+
+Dengan demikian, praktikum OS sangat penting bagi mahasiswa yang ingin memahami sistem operasi dan mengembangkan keterampilan teknis dalam bidang ini.
 
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
+Sistem operasi adalah perangkat lunak utama yang mengelola semua sumber daya perangkat keras dan perangkat lunak pada komputer serta bertindak sebagai perantara antara pengguna dan mesin. Tanpa sistem operasi, komputer tidak dapat menjalankan program apa pun, sehingga sangat penting untuk mengoptimalkan kinerja dan memungkinkan interaksi pengguna dengan perangkat. Contohnya termasuk Microsoft Windows, macOS, dan Linux, yang semuanya mengelola memori, proses, dan perangkat input/output. 
+.
 
 ---
 
@@ -43,7 +53,7 @@ dmesg | head
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
+https://photos.app.goo.gl/r853wurdjkLFrM3N7
 
 ---
 

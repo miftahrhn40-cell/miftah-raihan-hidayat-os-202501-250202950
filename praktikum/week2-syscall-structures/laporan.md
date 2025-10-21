@@ -99,9 +99,13 @@ feat(os-lab): implement basic system call structure and kernel function examples
 ## Kode / Perintah
 Tuliskan potongan kode atau perintah utama:
 ```bash
-uname -a
-lsmod | head
-dmesg | head
+include <stdio.h>
+#include <unistd.h>
+
+int main() {
+    const char *msg = "Hello from User Space!\n";
+    write(1, msg, 24); // system call 'write' → mengirim data ke stdout (file descriptor 1)
+    return 0;
 ```
 
 ---

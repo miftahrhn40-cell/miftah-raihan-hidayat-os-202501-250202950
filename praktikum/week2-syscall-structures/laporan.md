@@ -1,5 +1,5 @@
 
-# Laporan Praktikum Minggu [X]
+# Laporan Praktikum Minggu [2]
 Topik: Struktur System Call dan Fungsi Kernel
 ---
 
@@ -112,7 +112,7 @@ int main() {
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
+![Screenshot hasil]([)](https://photos.app.goo.gl/DHLf6gbJPBK2Jau6A)
 
 ---
 

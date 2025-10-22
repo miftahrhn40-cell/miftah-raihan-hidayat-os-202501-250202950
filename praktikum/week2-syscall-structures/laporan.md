@@ -257,6 +257,7 @@ Setelah selesai, hasil dikembalikan ke aplikasi di user space.
  Tuliskan secara singkat:
 
 -mungkin karna saya belum begitu mengerti tentang aplikasi baru
+
 -saya akan terus belajar dan menanyakan kepada teman yg sudah bisa
 
 ---

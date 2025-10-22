@@ -150,9 +150,7 @@ Jika membuat commit spesifik untuk tugas kuliah / laporan praktikum:
 strace ls
 strace -e trace=open,read,write,close cat /etc/passwd
 dmesg | tail -n 10
-```
-
----
+``
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:

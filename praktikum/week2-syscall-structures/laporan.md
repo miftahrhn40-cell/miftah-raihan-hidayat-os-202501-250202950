@@ -156,7 +156,7 @@ dmesg | tail -n 10
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
-![https://photos.app.goo.gl/DHLf6gbJPBK2Jau6A)
+![)
 
 ---
 

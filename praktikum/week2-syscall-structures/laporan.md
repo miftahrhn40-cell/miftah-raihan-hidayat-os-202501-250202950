@@ -163,74 +163,25 @@ Sertakan screenshot hasil percobaan atau diagram:
 ---
 
 ## Analisis
-Analisis
-- Jelaskan makna hasil percobaan:User Program (User Space)
+open() – Membuka file Program cat meminta kernel untuk membuka file /etc/passwd. Kernel memeriksa apakah file tersebut ada dan apakah user memiliki izin untuk membukanya. Jika diizinkan, kernel membuat file descriptor, yaitu nomor unik yang mewakili file tersebut di dalam sistem.
 
-Merupakan program atau aplikasi yang dijalankan oleh pengguna (misalnya ls, cat, atau program C buatan sendiri).
+read() – Membaca isi file Program meminta kernel membaca isi file melalui file descriptor. Kernel mengambil data dari disk (storage) dan menyalinnya ke memori (buffer) program. Data tersebut kemudian siap ditampilkan atau diolah oleh program.
 
-Program ini tidak memiliki akses langsung ke perangkat keras demi keamanan dan stabilitas sistem.
+write() – Menulis ke output Program cat menggunakan system call write() untuk menampilkan isi file ke layar (stdout). Kernel mengirimkan data dari memori program ke perangkat output (biasanya terminal).
 
-Ketika butuh layanan dari sistem (misalnya membaca file, membuat proses, atau mengakses memori), program akan memanggil system call.
+close() – Menutup file Setelah selesai, program memanggil close() untuk memberitahu kernel bahwa file sudah tidak digunakan. Kernel kemudian melepaskan file descriptor dan sumber daya lain yang terkait.
 
-2. System Call Interface
+dmesg (display message) menampilkan pesan-pesan dari kernel ring buffer, yaitu log yang dihasilkan oleh kernel Linux saat sistem melakukan booting atau saat perangkat keras dan driver dijalankan.
 
-Ini adalah lapisan perantara antara user space dan kernel space.
-
-Fungsinya menerjemahkan permintaan dari program pengguna menjadi operasi yang bisa dijalankan oleh kernel.
-
-Contohnya: read(), write(), fork(), open(), close() — semuanya melewati system call interface.
-
-Pada tahap ini, CPU berpindah mode dari user mode ke kernel mode.
-
-3. Kernel Function
-
-Di sinilah fungsi inti kernel dijalankan untuk mengeksekusi permintaan system call.
-
-Kernel memiliki hak akses penuh ke perangkat keras dan memori.
-
-Misalnya, ketika user memanggil write(), kernel function akan mengatur penulisan data ke buffer I/O atau driver perangkat. 
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS): Hubungan dengan Teori Fungsi Kernel
-
-Dalam teori sistem operasi, kernel adalah inti sistem operasi yang mengelola seluruh sumber daya komputer — seperti CPU, memori, dan perangkat I/O.
-
-Pada hasil percobaan (diagram), bagian “Kernel Function” menunjukkan bagaimana kernel menangani permintaan yang datang dari user program melalui system call.
-
-Fungsi kernel meliputi:
-
-Manajemen proses: membuat, menjadwalkan, dan mengakhiri proses.
-
-Manajemen memori: mengalokasikan dan mengatur memori antar proses.
-
-Manajemen perangkat I/O: melalui driver untuk membaca/menulis data.
-
-Artinya, diagram tadi mencerminkan bagaimana fungsi kernel berperan sebagai pengendali utama antara aplikasi dan perangkat keras. 
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)? Perbedaan Arsitektur Sistem
-Aspek	Linux	Windows
-Tipe arsitektur	Monolithic kernel	Hybrid kernel
-Deskripsi	Semua komponen inti (scheduler, memory manager, file system, driver) berada di dalam satu ruang kernel.	Kombinasi antara microkernel dan monolithic, dengan sebagian layanan kernel dijalankan sebagai modul terpisah (misalnya Windows Executive, HAL, dll).
-Implikasi pada hasil percobaan	System call langsung berinteraksi dengan kernel, sehingga lebih cepat namun berisiko bila bug terjadi.	System call melalui beberapa lapisan (napi.dll → kernel32.dll → ntoskrnl.exe), sedikit lebih lambat namun lebih stabil dan modular.
- Perbedaan Mekanisme System Call
-Aspek	Linux	Windows
-Interface system call	Langsung melalui tabel sys_call_table di kernel.	Melalui Windows API (user mode) → Native API (kernel mode).
-Contoh pemanggilan	write(), read(), open() — langsung menuju fungsi kernel (sys_write, sys_read, dll).	WriteFile(), ReadFile() — dipanggil melalui kernel32.dll → ntdll.dll → ntoskrnl.exe.
-Jumlah system call	Lebih terbuka (ratusan system call dapat dilihat via strace atau /usr/include/syscall.h).	Lebih tertutup (API tidak semua didokumentasikan secara publik).
-Akses developer	Open source — tabel dan implementasi system call bisa dimodifikasi dan dipelajari.	Closed source — hanya API level yang bisa digunakan, implementasi internal kernel disembunyikan.
- 
+Log ini mencakup hal-hal seperti: Proses inisialisasi perangkat keras (misal AC adapter, baterai, CPU, jaringan) Pesan dari modul kernel (seperti kvm_intel, intel_rapl_msr) Error atau peringatan sistem rendah (misal: “suspect GRO implementation”) Jadi, dmesg menampilkan aktivitas sistem level kernel, bukan aktivitas aplikasi user biasa.
 ---
----
-
-## Kesimpulan
-​Poin-Poin Utama:
-​System Call sebagai Antarmuka SO: Praktikum menunjukkan bahwa system call adalah satu-satunya mekanisme terstruktur dan aman bagi program yang berjalan di user mode untuk mengakses layanan-layanan penting yang disediakan oleh SO, seperti manajemen file (open, read, write), manajemen proses (fork, exec), dan kontrol perangkat keras.
-​Pentingnya Dual Mode Operasi: Praktikum memvalidasi konsep dual mode operasi (User Mode dan Kernel Mode). Setiap kali system call dipanggil, terjadi transisi mode dari User Mode ke Kernel Mode melalui mekanisme trap atau interrupt. Transisi ini penting untuk:
-​Keamanan (Proteksi): Mencegah program aplikasi merusak atau mengakses sumber daya sistem yang sensitif secara langsung.
-​Stabilitas: Memastikan bahwa kegagalan satu program aplikasi tidak akan menyebabkan seluruh sistem (kernel) crash.
-​Abstraksi oleh Pustaka Standar: Dalam praktikum (misalnya, menggunakan bahasa C), programer jarang memanggil system call secara langsung. Sebaliknya, digunakan fungsi pustaka standar (seperti fopen() atau printf()). Pustaka ini bertindak sebagai wrapper yang mempermudah pemrogram dan menangani detail teknis pemanggilan system call (seperti menyiapkan parameter dan memicu trap).
-​Implementasi Layanan Kernel: Hasil dari system call adalah eksekusi fungsi yang sesuai di dalam Kernel. Praktikum memperlihatkan bagaimana Kernel, setelah mengambil kendali, menjalankan tugas inti (misalnya, menjadwalkan proses baru, atau memindahkan data antara buffer memori dan perangkat keras disk).
-​Secara keseluruhan, praktikum system call memberikan pemahaman praktis bahwa system call adalah fondasi arsitektur Sistem Operasi modern yang memastikan efisiensi, keamanan, dan manajemen sumber daya yang terpusat dan teratur.
-
----
-
+##Tabel Observasi
+Aspek Output dmesg Output Program Biasa
+Sumber Kernel (sistem operasi inti) User-space program (misal cat, ls, python, dll.)
+Isi Pesan Status hardware, driver, dan kernel internal Hasil dari instruksi atau log program
+Akses Butuh hak akses ke kernel (bisa sudo) Dijalankan langsung oleh user
+Tujuan Debugging sistem & hardware Memberikan hasil kerja program ke pengguna
+Contoh Pesan [7.981179] ACPI: battery: Slot [BAT1] (battery present) Tidak ada contoh yang diberikan, tetapi akan berupa output aplikasi. (Misalnya, isi file dari cat, daftar file dari ls, atau output dari script Python)
 ## Quiz
 1. Apa yang dimaksud dengan system call dalam sistem operasi?
 Jawaban: System call adalah mekanisme yang digunakan oleh program aplikasi (user space) untuk meminta layanan dari kernel (kernel space). Melalui system call, aplikasi dapat melakukan operasi yang memerlukan hak akses tinggi, seperti membaca file, membuat proses baru, atau berkomunikasi dengan perangkat keras. Contoh system call pada Linux: read(), write(), open(), fork().

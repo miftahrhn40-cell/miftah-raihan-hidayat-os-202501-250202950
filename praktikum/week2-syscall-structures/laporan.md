@@ -169,10 +169,9 @@ close() – Menutup file Setelah selesai, program memanggil close() untuk member
 
 dmesg (display message) menampilkan pesan-pesan dari kernel ring buffer, yaitu log yang dihasilkan oleh kernel Linux saat sistem melakukan booting atau saat perangkat keras dan driver dijalankan.
 
-Log ini mencakup hal-hal seperti: Proses inisialisasi perangkat keras (misal AC adapter, baterai, CPU, jaringan) Pesan dari modul kernel (seperti kvm_intel, intel_rapl_msr) Error atau peringatan sistem rendah (misal: “suspect GRO implementation”) Jadi, dmesg menampilkan aktivitas sistem level kernel, bukan aktivitas aplikasi user biasa.
 ---
 
-##Tabel Observasi
+## Tabel Observasi
 
 Aspek Output dmesg Output Program Biasa
 Sumber Kernel (sistem operasi inti) User-space program (misal cat, ls, python, dll.)
@@ -182,6 +181,7 @@ Tujuan Debugging sistem & hardware Memberikan hasil kerja program ke pengguna
 Contoh Pesan [7.981179] ACPI: battery: Slot [BAT1] (battery present) Tidak ada contoh yang diberikan, tetapi akan berupa output aplikasi. (Misalnya, isi file dari cat, daftar file dari ls, atau output dari script Python)
 
 
+___
 ## Quiz
 1. Apa yang dimaksud dengan system call dalam sistem operasi?
 Jawaban: System call adalah mekanisme yang digunakan oleh program aplikasi (user space) untuk meminta layanan dari kernel (kernel space). Melalui system call, aplikasi dapat melakukan operasi yang memerlukan hak akses tinggi, seperti membaca file, membuat proses baru, atau berkomunikasi dengan perangkat keras. Contoh system call pada Linux: read(), write(), open(), fork().

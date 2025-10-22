@@ -155,8 +155,10 @@ dmesg | tail -n 10
 ``
 
 ## Hasil Eksekusi
-Sertakan screenshot hasil percobaan atau diagram:
-![)
+![alt text].(screenshots/scereenshotssyscall.png
+![alt text].(screenshots/scereenshotssyscall1.png
+![alt text].(screenshots/scereenshotssyscall2.png
+![alt text].(screenshots/scereenshotssyscall3.png
 
 ---
 

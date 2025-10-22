@@ -174,13 +174,15 @@ dmesg (display message) menampilkan pesan-pesan dari kernel ring buffer, yaitu l
 ---
 
 ## Tabel Observasi
+| **Aspek**     | **Output `dmesg`**                                        | **Output Program Biasa**                               |
+| ------------- | --------------------------------------------------------- | ------------------------------------------------------ |
+| **Sumber**    | Kernel (sistem operasi inti)                              | User-space program (misal `cat`, `ls`, `python`, dll.) |
+| **Isi Pesan** | Status hardware, driver, dan kernel internal              | Hasil dari instruksi atau log program                  |
+| **Akses**     | Butuh hak akses ke kernel (bisa `sudo`)                   | Dijalankan langsung oleh user                          |
+| **Tujuan**    | Debugging sistem & hardware                               | Memberikan hasil kerja program ke pengguna             |
+| **Contoh**    | `[7.981179] ACPI: battery: Slot [BAT1] (battery present)` | `Hello World`, hasil perhitungan, dsb.                 |
 
-Aspek Output dmesg Output Program Biasa
-Sumber Kernel (sistem operasi inti) User-space program (misal cat, ls, python, dll.)
-Isi Pesan Status hardware, driver, dan kernel internal Hasil dari instruksi atau log program
-Akses Butuh hak akses ke kernel (bisa sudo) Dijalankan langsung oleh user
-Tujuan Debugging sistem & hardware Memberikan hasil kerja program ke pengguna
-Contoh Pesan [7.981179] ACPI: battery: Slot [BAT1] (battery present) Tidak ada contoh yang diberikan, tetapi akan berupa output aplikasi. (Misalnya, isi file dari cat, daftar file dari ls, atau output dari script Python)
+
 
 
 ___

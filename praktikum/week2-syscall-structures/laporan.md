@@ -155,10 +155,10 @@ dmesg | tail -n 10
 ``
 
 ## Hasil Eksekusi
-![alt text](screenshots/Scereenshotssyscall1.png)
-![alt text](screenshots/Scereenshotssyscall2.png)
-![alt text](screenshots/Scereenshotssyscall3.png)
-![alt text](screenshots/Scereenshotssyscall.png)
+![alt text](screenshots/scereenshotssyscall1.png)
+![alt text](screenshots/scereenshotssyscall2.png)
+![alt text](screenshots/scereenshotssyscall3.png)
+![alt text](screenshots/scereenshotssyscall.png)
 ---
 
 ## Analisis

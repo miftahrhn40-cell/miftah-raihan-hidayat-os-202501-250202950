@@ -7,7 +7,7 @@ Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
 ## Identitas
 - **Nama**  : [Miftah Raihan Hidayat]  
 - **NIM**   : [250202950]  
-- **Kelas** : [!IKRA]
+- **Kelas** : [1IKRA]
 
 ---
 

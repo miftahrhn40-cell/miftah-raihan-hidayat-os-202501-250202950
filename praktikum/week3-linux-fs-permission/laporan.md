@@ -13,13 +13,26 @@ Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
 
 ## Tujuan
 Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
+Setelah menyelesaikan tugas ini, mahasiswa mampu:
+
+1.Menggunakan perintah ls, pwd, cd, cat untuk navigasi file dan direktori.
+
+2.Menggunakan chmod dan chown untuk manajemen hak akses file.
+
+3.Menjelaskan hasil output dari perintah Linux dasar.
+
+4.Menyusun laporan praktikum dengan struktur yang benar.
+
+5.Mengunggah dokumentasi hasil ke Git Repository tepat waktu.
 
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
+Manajemen file dan permission di Linux merupakan bagian penting dari sistem operasi yang berfungsi untuk mengatur penyimpanan, pengelolaan, serta pengamanan data. Setiap file di Linux memiliki struktur izin (permission) dan identitas kepemilikan yang menentukan siapa saja yang dapat membaca, menulis, atau mengeksekusi file tersebut. Kernel berperan dalam mengatur akses file melalui sistem berkas yang terstruktur secara hierarki, dimulai dari direktori root (/). Dengan adanya pengaturan hak akses ini, Linux dapat menjaga keamanan sistem, mencegah penyalahgunaan data, dan memastikan setiap pengguna hanya dapat melakukan operasi sesuai dengan hak yang diberikan.
+
+Manajemen file di Linux menggunakan sistem hierarki direktori dengan root directory (/) sebagai pusatnya. Setiap file memiliki tiga jenis hak akses utama: read (r), write (w), dan execute (x) untuk user, group, dan others. Pengaturan permission berperan penting dalam menjaga keamanan, keteraturan, dan integritas sistem operasi Linux.
+
+
 
 ---
 

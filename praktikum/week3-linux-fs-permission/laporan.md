@@ -55,7 +55,7 @@ echo "Hello " > percobaan.txt ls -l percobaan.txt chmod 600 percobaan.txt ls -l 
 
 
 
-```
+
 
 ---
 

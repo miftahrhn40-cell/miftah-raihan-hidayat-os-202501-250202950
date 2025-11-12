@@ -12,11 +12,11 @@ Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
 ---
 
 ## Tujuan
-1.Menjelaskan konsep proses dan user dalam sistem operasi Linux.
-2.Menampilkan daftar proses yang sedang berjalan dan statusnya. 
-3.Menggunakan perintah untuk membuat dan mengelola user.
-4.Menghentikan atau mengontrol proses tertentu menggunakan PID. 
-5.Menjelaskan kaitan antara manajemen user dan keamanan sistem.
+1. Menjelaskan konsep proses dan user dalam sistem operasi Linux.
+2. Menampilkan daftar proses yang sedang berjalan dan statusnya. 
+3. Menggunakan perintah untuk membuat dan mengelola user.
+4. Menghentikan atau mengontrol proses tertentu menggunakan PID. 
+5. Menjelaskan kaitan antara manajemen user dan keamanan sistem.
 ---
 
 ## Dasar Teori

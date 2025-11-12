@@ -93,6 +93,7 @@ dmesg | head
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
 ![Screenshot hasil](screenshots/example.png)
+![Eksperimen](https://github.com/user-attachments/assets/f5c056f3-2116-4d67-b9a9-c7de0ba71eff)
 
 ---
 

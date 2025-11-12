@@ -100,9 +100,106 @@ Sertakan screenshot hasil percobaan atau diagram:
 ---
 
 ## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
+Eksperimen 1 – Identitas User Jalankan perintah berikut:
+
+whoami
+id
+groups
+Jelaskan setiap output dan fungsinya.
+
+whoami = Perintah whoami digunakan untuk menampilkan nama pengguna (username) yang sedang aktif atau login di sistem Linux.
+
+Perintah whoami fungsinya untuk menampilkan nama pengguna yang sedang login di sistem.
+Hasil faiqatha menunjukkan bahwa user yang sedang aktif atau menjalankan terminal bernama faiqatha.
+ id = Perintah id fungsinya untuk menampilkan identitas pengguna dan grup yang sedang aktif di sistem Linux.
+uid=1000(faiqatha) artinya user id fungsinya menunjukan id unik user faiqatha yang sedang login.
+gid=1000(faiqatha) artinya group ID Utama fungsinya Menunjukkan ID grup utama tempat user faiqatha tergabung.
+groups=... artinya grup tambahan fungsinya Menampilkan daftar grup lain yang memberi izin dan akses tertentu.
+groups = Perintah groups digunakan untuk menampilkan daftar grup tempat user saat ini tergabung.
+
+Grup	Arti	Fungsi
+adm	Administrator logs	Dapat membaca file log sistem.
+dialout	Serial port access	Mengakses perangkat serial seperti modem.
+cdrom	CD/DVD access	Mengakses dan menggunakan perangkat CD/DVD.
+floppy	Floppy access	Mengakses disket (floppy drive).
+sudo	Superuser privileges	Menjalankan perintah dengan hak akses administrator (root).
+audio	Audio devices	Mengelola dan menggunakan perangkat suara.
+dip	Dial-up networking	Mengatur koneksi jaringan manual (mis. PPP).
+video	Video devices	Mengakses perangkat grafis atau kamera.
+plugdev	Plug and Play devices	Mengelola perangkat eksternal seperti USB drive.
+users	General users	Grup umum untuk semua pengguna biasa.
+netdev	Network devices	Mengelola perangkat jaringan (Wi-Fi, Ethernet).
+Perintah sudo adduser praktikan digunakan untuk menambah user baru bernama praktikan.
+Bagian	Makna	Fungsi
+sudo	Menjalankan perintah dengan hak akses administrator	Memungkinkan user biasa (faiqatha) menjalankan perintah yang memerlukan izin root.
+adduser praktikan	Menambahkan pengguna baru bernama praktikan	Membuat akun baru di sistem Linux lengkap dengan home directory dan pengaturan awal.
+[sudo] password for faiqatha:	Permintaan kata sandi pengguna	Sistem meminta password faiqatha untuk memastikan ia berhak menjalankan perintah sebagai admin.
+fatal: The user `praktikan' already exists.	Pesan kesalahan	Menunjukkan bahwa user bernama praktikan sudah ada, jadi tidak bisa dibuat lagi.
+Perintah sudo passwd praktikan berfungsi untuk mengubah atau menetapkan password baru bagi akun praktikan.
+Baris Output	Makna	Fungsinya
+sudo	Menjalankan perintah dengan hak akses administrator	Memungkinkan user (misalnya faiqatha) mengubah password milik user lain (praktikan).
+passwd praktikan	Mengatur atau mengubah password untuk user praktikan	Digunakan untuk menetapkan kata sandi baru pada akun tersebut.
+New password:	Sistem meminta password baru	Admin mengetik kata sandi baru untuk user praktikan.
+Retype new password:	Konfirmasi ulang password	Memastikan password yang dimasukkan benar dan sama dengan sebelumnya.
+passwd: password updated successfully	Password berhasil diperbarui	Menandakan proses penggantian kata sandi selesai tanpa error.
+Eksperimen 2 – Monitoring Proses
+
+ ps aux | head -10
+ top -n 1
+Jelaskan kolom penting seperti PID, USER, %CPU, %MEM, COMMAND.
+Kolom	Arti	Fungsi
+USER	Nama pengguna pemilik proses	Menunjukkan siapa yang menjalankan proses tersebut (misalnya root atau faiqatha).
+PID	Process ID (Nomor proses)	Nomor unik yang diberikan sistem untuk mengidentifikasi setiap proses.
+%CPU	Persentase penggunaan CPU	Menunjukkan seberapa banyak CPU digunakan oleh proses tersebut. Semakin tinggi angkanya, semakin berat proses tersebut bekerja.
+%MEM	Persentase penggunaan memori (RAM)	Menunjukkan berapa banyak memori yang dipakai proses dibanding total RAM sistem.
+COMMAND	Nama atau perintah yang dijalankan	Menunjukkan program atau perintah apa yang sedang berjalan (contoh: /sbin/init, systemd-journald, snapfuse, dll).
+USER: root → proses dijalankan oleh user root
+PID: 59 → ID prosesnya 59
+%CPU: 0.0 → hampir tidak menggunakan CPU
+%MEM: 0.4 → menggunakan 0,4% dari RAM
+COMMAND: /usr/lib/systemd/systemd-journald → nama program yang dijalankan.
+Eksperimen 3 – Kontrol Proses
+
+Catat PID proses sleep.
+sleep 1000 &
+ps aux | grep sleep
+Catat PID proses sleep.
+prima        1463 0.0  0.0   3124  1664 pts/0    s    01:26  0:00 sleep 1000
+prima        1485 0.0  0.0   4088  1920 pts/0    s+   01:27  0:00 grep --color+auto sleep
+Hentikan proses: ```bash
+kill 1463
+ps aux | grep sleep
+prima      1712  0.0  0.0   4088  1920 pts/0    s+   01:36  0:00 grep --color=auto sleep
+[1]+  Terminated              sleep 1000
+
+Eksperimen 4 – Analisis Hierarki Proses Jalankan:
+
+pstree -p | head -20
+Amati hierarki proses dan identifikasi proses induk (init/systemd).
+Catat hasilnya dalam laporan.
+systend(1)-+-agetty(199)
+           |-agetty(202)
+           |-cron(166)
+           |-dbus-daemon(167)
+           |-init-systemd(Ub(2)--+--SessionLeader(979)---Relay(986)(980)---bash(986)-+-head (1775)
+           |                     |                                                   `-pstree(1774)
+           |                     |-init(6)-(init](7)
+           |                     |-login(295)-bash(365)
+           |                     `-{init-systemd(Ub}(8)
+           |-rsyslogd(189)--+--(rsyslogd)(204)
+           |                |-{rsyslogd}(205)
+           |                |-{rsyslogd}(206)
+           |-systend(340)---(sd-pam)(341)
+           |-systemd-journal(55)
+           |-systend-logind(174)
+           |-systend-resolve(153)
+           |-systemd-timesyn(160)---{systend-tinesyn}(164)
+           |-systend-udevd(103)
+           |-unattended-upgr(203)---{unattended-upgr}(250)
+           |-wsl-pro-service (176)-+-{wsl-pro-service}(209)
+Proses utama (induk) dalam sistem adalah systemd (PID 1).Ini adalah proses pertama yang dijalankan saat sistem Linux booting.
+Semua proses lain seperti agetty, cron, dbus-daemon, rsyslogd, dan snapd adalah turunan (child process) dari systemd.
+Proses yang kamu jalankan di terminal (misalnya pstree, head, dan sleep) juga akhirnya diturunkan dari systemd melalui bash (shell yang kamu pakai).
 
 ---
 

@@ -5,22 +5,29 @@ Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
 ---
 
 ## Identitas
-- **Nama**  : [Nama Mahasiswa]  
-- **NIM**   : [NIM Mahasiswa]  
-- **Kelas** : [Kelas]
+- **Nama**  : [Miftah Raihan Hidyaat]  
+- **NIM**   : [250202950]  
+- **Kelas** : [1-IKRA]
 
 ---
 
 ## Tujuan
-Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
 
+1. Menghitung waiting time dan turnaround time untuk algoritma FCFS dan SJF.
+2. Menyajikan hasil perhitungan dalam tabel yang rapi dan mudah dibaca.
+3. Membandingkan performa FCFS dan SJF berdasarkan hasil analisis.
+4. Menjelaskan kelebihan dan kekurangan masing-masing algoritma.
+5. Menyimpulkan kapan algoritma FCFS atau SJF lebih sesuai digunakan.
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
+Pada praktikum minggu ini, mahasiswa akan mempelajari algoritma penjadwalan CPU (CPU Scheduling) menggunakan dua pendekatan dasar:
 
+FCFS (First Come First Served)
+SJF (Shortest Job First)
+Tujuan utamanya adalah memahami bagaimana sistem operasi menentukan urutan eksekusi proses, serta bagaimana waiting time dan turnaround time memengaruhi performa sistem.
+
+Mahasiswa akan melakukan simulasi dan perbandingan hasil perhitungan kedua algoritma ini menggunakan tabel observasi manual atau spreadsheet (Excel/Google Sheets) — tanpa perlu melakukan instalasi atau pemrograman tambahan.
 ---
 
 ## Langkah Praktikum

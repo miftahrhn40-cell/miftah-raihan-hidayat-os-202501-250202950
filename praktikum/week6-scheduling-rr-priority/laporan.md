@@ -188,24 +188,41 @@ Sertakan screenshot hasil percobaan atau diagram:
 ---
 
 ## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
+Algoritma Round Robin (RR) menunjukkan bahwa pembagian waktu berbasis time quantum membuat setiap proses mendapatkan kesempatan eksekusi secara merata. Namun, performa sangat bergantung pada besar kecilnya quantum. Quantum terlalu kecil menyebabkan banyak context switching sehingga sistem kurang efisien, sedangkan quantum terlalu besar membuat RR hampir menyerupai FCFS.
+
+2.Algoritma Priority Scheduling mengeksekusi proses berdasarkan tingkat prioritas. Proses dengan prioritas tinggi selesai lebih cepat, sehingga sangat cocok untuk sistem yang membutuhkan penanganan proses penting secara segera. Namun, algoritma ini memiliki risiko starvation, yaitu proses prioritas rendah dapat menunggu terlalu lama jika proses prioritas tinggi terus berdatangan.
+
+3.Berdasarkan perhitungan WT dan TAT, RR cenderung memberikan fairness, sedangkan Priority unggul pada respons cepat untuk proses penting. Nilai rata-rata WT dan TAT berbeda karena kedua algoritma memiliki tujuan berbeda—RR fokus pada keadilan, Priority fokus pada urgensi.
+
+4.Dari hasil eksperimen, terlihat bahwa pemilihan algoritma penjadwalan harus disesuaikan dengan kebutuhan sistem. Jika membutuhkan keadilan → RR, sedangkan jika membutuhkan prioritas tinggi → Priority.
 
 ---
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
+Round Robin memberikan pembagian waktu CPU yang lebih merata dan cocok untuk sistem interaktif, tetapi performanya sangat dipengaruhi oleh besar kecilnya time quantum.
+
+2.Priority Scheduling mampu memprioritaskan proses tertentu sehingga lebih efisien untuk kebutuhan real-time, tetapi dapat menimbulkan starvation pada proses prioritas rendah.
+
+3.Hasil perhitungan menunjukkan bahwa setiap algoritma memiliki kelebihan dan kekurangan, sehingga tidak ada satu algoritma yang paling baik untuk semua situasi.
+
 
 ---
 
 ## Quiz
-1. [Pertanyaan 1]  
-   **Jawaban:**  
-2. [Pertanyaan 2]  
-   **Jawaban:**  
-3. [Pertanyaan 3]  
-   **Jawaban:**  
+Apa perbedaan utama antara Round Robin dan Priority Scheduling?
+Round Robin: menggunakan time quantum dan memberikan jatah waktu yang sama kepada semua proses → adil, preemptive.
+
+Priority Scheduling: memilih proses berdasarkan prioritas (angka lebih kecil = lebih penting) → tidak selalu adil, risiko starvation.
+
+Apa pengaruh besar/kecilnya time quantum terhadap performa sistem?
+Quantum kecil: proses sering diputus (preemption tinggi), context switching banyak, CPU menjadi kurang efisien.
+
+Quantum besar: mirip FCFS, proses lama bisa mendominasi CPU, fairness berkurang.
+
+Waktu yang optimal harus menyeimbangkan efisiensi dan respons sistem.
+
+Mengapa algoritma Priority dapat menyebabkan starvation?
+Karena proses dengan prioritas rendah dapat terus tertunda jika selalu ada proses baru dengan prioritas lebih tinggi yang masuk ke sistem. Akibatnya, proses prioritas rendah mungkin tidak pernah mendapatkan giliran eksekusi.
 
 ---
 

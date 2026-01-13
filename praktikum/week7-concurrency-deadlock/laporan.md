@@ -1,4 +1,4 @@
-
+9
 # Laporan Praktikum Minggu [X]
 Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
 
@@ -156,11 +156,49 @@ while True:
 
 ## Analisis
 
+1.Analisis Eksperimen Versi 1 (Tanpa Mekanisme Pencegah Deadlock)
+Pada percobaan pertama, semua filsuf bekerja tanpa aturan tambahan — mereka langsung mengambil garpu kiri terlebih dahulu. Dari hasil output, seluruh filsuf memang sukses memegang garpu kiri, tetapi tidak ada satu pun yang berhasil mengambil garpu kanan. Akhirnya, tidak ada proses makan yang terjadi.
 
+Pada titik ini, setiap filsuf terjebak karena garpu yang ia butuhkan sedang digunakan oleh tetangganya. Terbentuklah rantai tunggu seperti berikut:
+
+F0 → menunggu garpu 1
+F1 → menunggu garpu 2
+F2 → menunggu garpu 3
+F3 → menunggu garpu 4
+F4 → menunggu garpu 0 (membuat lingkaran lengkap)
+
+Situasi tersebut memenuhi keempat kondisi deadlock menurut Coffman. Yang paling terlihat adalah circular wait, karena kelima filsuf saling menunggu dalam urutan melingkar tanpa jalan keluar.
+
+Tidak ada mekanisme: untuk mengubah urutan pengambilan garpu, membatasi siapa yang boleh makan, atau memaksa pelepasan garpu.
+
+Akibatnya, sistem berhenti total dan tidak satu filsuf pun dapat melanjutkan. Eksperimen ini menunjukkan bahwa desain Dining Philosophers versi dasar secara alami mengarah pada deadlock.
+
+2.Analisis Eksperimen Versi 2 (Semaphore + Urutan Garpu Dibalik) Pada versi kedua, dua metode pencegahan deadlock dimasukkan:
+
+3.Semaphore max_eaters = 4 Hanya empat filsuf yang boleh mencoba makan dalam satu waktu.
+
+4.Filsuf terakhir mengambil garpu dengan urutan terbalik Ia mengambil garpu kanan dulu, baru garpu kiri, untuk memecahkan pola pengambilan sumber daya yang identik.
+
+Setelah modifikasi ini dijalankan, output menunjukkan bahwa:
+
+Proses makan terjadi secara bergantian tanpa kebuntuan. Tidak ada lima filsuf yang menunggu selamanya. Selalu ada filsuf yang berhasil makan dan kemudian melepas garpu.
+
+Dengan maksimum empat filsuf di zona makan, tidak pernah terbentuk kondisi di mana kelima garpu terkunci sekaligus.
+
+Penerapan urutan terbalik pada filsuf terakhir juga menghilangkan pola permintaan resource yang membentuk lingkaran sempurna. Dengan begitu, kondisi circular wait terputus, sehingga deadlock tidak mungkin muncul.
+
+Secara keseluruhan, kedua mekanisme ini terbukti efektif menghilangkan salah satu syarat utama deadlock. Karena kondisi Coffman keempat tidak terpenuhi, maka sistem dapat berjalan bebas deadlock.
 ---
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
+Deadlock pada Dining Philosophers terjadi karena semua kondisi Coffman terpenuhi, terutama circular wait.
+
+Dengan membatasi akses menggunakan semaphore serta mengubah urutan pengambilan garpu, circular wait dapat dihilangkan.
+
+Versi perbaikan berjalan lebih stabil dan tidak menunjukkan tanda deadlock.
+
+Praktikum ini menunjukkan bahwa pengaturan resource sangat menentukan apakah sistem concurrency aman atau tidak.
+
 
 ---
 
